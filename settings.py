@@ -15,8 +15,8 @@ class Settings:
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (70, 130, 180)  # 钢蓝色子弹
-        self.bullets_allowed = 3
+        self.bullets_allowed = 5
         # 外星人设置
-        self.alien_speed = 1.0
+        self.alien_speed = 0.5
         self.fleet_drop_speed = 10
         self.fleet_direction = 1  # 1表示外星人向右移动, -1代表外星人向左移动

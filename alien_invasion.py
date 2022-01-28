@@ -15,9 +15,7 @@ class AlienInvasion:
         """初始化游戏并创建游戏资源"""
         pygame.init()
         self.settings = Settings()
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        self.settings.screen_width = self.screen.get_rect().width
-        self.settings.screen_height = self.screen.get_rect().height
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
         self.stats = GameStats(self)
         self.ship = Ship(self)
@@ -82,12 +80,13 @@ class AlienInvasion:
     def _check_bullet_alien_collosions(self):
         """响应子弹和外星人碰撞"""
         # 检查是否有子弹击中了外星人, 有的话删除对应的子弹和外星人
-        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
         if not self.aliens:
             # 删除现有的子弹并新建一群外星人
             self.bullets.empty()
             self._creat_fleet()
 
+    # noinspection PyTypeChecker
     def _update_aliens(self):
         """更新外星人群中所有外星人的位置, 检查是否有外星人位于屏幕边缘"""
         self._check_fleet_edges()
