@@ -1,4 +1,5 @@
 import pygame
+from pygame.sprite import Sprite
 
 
 class Ship:
@@ -6,6 +7,7 @@ class Ship:
 
 	def __init__(self, ai_game):
 		"""初始化飞船并初始化其位置"""
+		super().__init__()
 		self.screen = ai_game.screen
 		self.screen_rect = ai_game.screen.get_rect()
 		self.settings = ai_game.settings
